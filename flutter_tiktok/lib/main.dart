@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_tiktok/player.dart';
 import 'package:video_player/video_player.dart';
 
 void main() {
@@ -76,54 +77,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
-class HomePage extends StatelessWidget {
-   const HomePage({Key? key}) : super(key: key);
-   final List<Map> items = const [
-    {
-      "video": "assets/videos/video_1.mp4",
-    },
-    {
-      "video": "assets/videos/video_2.mp4",
-    },
-    {
-      "video": "assets/videos/video_3.mp4",
-    },
-    {
-      "video": "assets/videos/video_4.mp4",
-    },
-    {
-      "video": "assets/videos/video_5.mp4",
-    },
-    {
-      "video": "assets/videos/video_6.mp4",
-    },
-  ];
 
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider(
-      options: CarouselOptions(
-          height: double.infinity,
-          scrollDirection: Axis.vertical,
-          viewportFraction: 1.0,
-      ),
-      items:items.map((item) {
-        return Builder(
-          builder: (BuildContext context) {
-            return Container(
-              color: const Color(0xFF141518),
-              child: Stack(
-                children: [VideoWidget(videoUrl: item['video']),
-                  const  PostContent()
-                ],
-              ),
-            );
-          },
-        );
-      }).toList(),
-    );
-  }
-}
 class VideoWidget extends StatefulWidget {
   const VideoWidget({Key? key, required this.videoUrl}) : super(key: key);
   final String videoUrl;
@@ -150,97 +104,7 @@ class _VideoWidgetState extends State<VideoWidget> {
     return VideoPlayer(_controller);
   }
 }
-class PostContent extends StatelessWidget {
-  const PostContent({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height:100,
-          padding: const EdgeInsets.only(top:40),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('Abonnements', style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w600
-              ),
-              ),
-              SizedBox(width: 20),
-              Text('Pour toi', style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w600
-              ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: Container(
-                      //color: Colors.red.withOpacity(0.5),
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            '@delnasa_3',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Text(
-                            '#belleJournee',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-
-
-
-                        ],
-                      ),
-                    )),
-                Container(
-                  width: 80,
-                  color: Colors.green,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        height: 80,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        height: 80,
-                        color: Colors.teal,
-                      ),
-                      Container(
-                        height: 80,
-                        color: Colors.yellow,
-                      ),
-                      Container(
-                        height: 80,
-                        color: Colors.orange,
-                      ),
-                      Container(
-                        height: 80,
-                        color: Colors.purple,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-        )
-      ],
-    );
-  }
-}
 
 
 

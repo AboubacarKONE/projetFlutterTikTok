@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_tiktok/Conteneur.dart';
+import 'package:flutter_tiktok/Video.dart';
 import 'package:flutter_tiktok/main.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+   HomePage({Key? key}) : super(key: key);
   final List<Map> items = const [
     {
       "video": "assets/videos/video_1.mp4",
@@ -38,10 +39,10 @@ class HomePage extends StatelessWidget {
         return Builder(
           builder: (BuildContext context) {
             return Container(
-              color: const Color(0xFF141518),
+              color:  Color(0xFF141518),
               child: Stack(
                 children: [VideoWidget(videoUrl: item['video']),
-                  const  PostContent()
+                    Conteneur()
                 ],
               ),
             );

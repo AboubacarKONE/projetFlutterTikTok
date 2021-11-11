@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PostContent extends StatelessWidget {
-  const PostContent({Key? key}) : super(key: key);
+class Conteneur extends StatelessWidget {
+   Conteneur({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children:  [
         Container(
           height:100,
-          padding: const EdgeInsets.only(top:40),
+          padding: EdgeInsets.only(top:40),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text('Abonnements', style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w600
               ),
               ),
@@ -30,11 +30,11 @@ class PostContent extends StatelessWidget {
               Expanded(
                   child: Container(
                     //color: Colors.red.withOpacity(0.5),
-                    padding: const EdgeInsets.all(10),
+                    padding:  EdgeInsets.all(10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children:  [
                         Text(
                           '@delnasa_3',
                           style: TextStyle(
@@ -50,21 +50,59 @@ class PostContent extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 10),
-
-
-
+                        Row(
+                          children:  [
+                            Icon(
+                              Icons.music_note,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Salif_keita_Mofou',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   )),
-              Container(
+              SizedBox(
                 width: 80,
-                color: Colors.green,
+                //color: Colors.green,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 80,
-                      color: Colors.blue,
+                      //color: Colors.blue,
+                      child: Stack(
+                        alignment: AlignmentDirectional.bottomCenter,
+                        children: [
+                          Container(
+                            child: CircleAvatar(
+                                radius:30,
+                                backgroundImage: AssetImage('assets/images/Abou.jpeg'),
+                          ),
+                            margin: EdgeInsets.only(bottom: 10),
+
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
                       height: 80,
